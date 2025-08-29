@@ -1,5 +1,0 @@
-[2025-08-22 08:17:00,713][__main__][INFO] - Starting Training.
-[2025-08-22 08:17:04,403][__main__][INFO] - here None /AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/outputs/text8/2025.08.22/081700/checkpoints/last.ckpt
-[2025-08-22 08:17:04,436][dataloader][INFO] - Generating new data at: /data/text8/text8_train_bs256_wrapped.dat
-[2025-08-22 08:17:04,437][dataloader][INFO] - Downloading text8 from URL http://mattmahoney.net/dc/text8.zip.
-[2025-08-22 08:19:05,170][dataloader][INFO] - Generating new data at: /data/text8/text8_test_bs256_wrapped.dat

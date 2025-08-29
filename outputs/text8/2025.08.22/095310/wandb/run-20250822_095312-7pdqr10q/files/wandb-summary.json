@@ -1,1 +1,0 @@
-{"_runtime":19.503595156,"_wandb":{"runtime":19},"val_rec/nll":3.5553476810455322,"val/kl":NaN,"val_rec/bpd":5.129282468080465,"trainer/rec":0,"val/bpd":5.134409001233889,"val_rec/ppl":34.999986684466684,"val_rec/kl":0,"_timestamp":1.7558563973498275e+09,"_step":0,"val/ppl":35.12457834070884,"trainer/loss":3555.347900390625,"val/nll":3.558901123046875}
