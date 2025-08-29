@@ -1,0 +1,43 @@
+[2025-08-23 02:42:01,782][__main__][INFO] - here /AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/outputs/FB/2025.08.23/024158/checkpoints/last.ckpt /AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/outputs/FB/2025.08.23/024158/checkpoints/last.ckpt
+32 ?= 32 * 1 * 1 * 1
+/root/miniconda3/lib/python3.9/site-packages/lightning/fabric/connector.py:572: `precision=bf16` is supported for historical reasons but its usage is discouraged. Please set your precision to bf16-mixed instead!
+Using bfloat16 Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+`Trainer(limit_train_batches=1.0)` was configured so 100% of the batches per epoch will be used..
+`Trainer(limit_val_batches=1.0)` was configured so 100% of the batches will be used..
+Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/1
+----------------------------------------------------------------------------------------------------
+distributed_backend=nccl
+All distributed processes registered. Starting with 1 processes
+----------------------------------------------------------------------------------------------------
+
+Restoring states from the checkpoint path at /AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/outputs/FB/2025.08.23/024158/checkpoints/last.ckpt
+Error executing job with overrides: ['model=small', 'data=FB', 'parameterization=new_diff', 'backbone=FB', 'model.length=500', 'eval.compute_generative_perplexity=False', 'sampling.steps=200', 'loader.global_batch_size=32', 'training.different_time=True', 'training.onehot_sparse=True', 'mode=eval', 'eval.checkpoint_path=/AIRvePFS/ai4science/users/yupei/test_slm_repo/ckpt/FB_best.ckpt', 'gamma=2.7', 'trainer.devices=1']
+Traceback (most recent call last):
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/main.py", line 307, in main
+    _train(config, logger, tokenizer)
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/main.py", line 282, in _train
+    trainer.fit(model, train_ds, valid_ds, ckpt_path=ckpt_path)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/trainer/trainer.py", line 539, in fit
+    call._call_and_handle_interrupt(
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/trainer/call.py", line 46, in _call_and_handle_interrupt
+    return trainer.strategy.launcher.launch(trainer_fn, *args, trainer=trainer, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/strategies/launchers/subprocess_script.py", line 105, in launch
+    return function(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/trainer/trainer.py", line 575, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/trainer/trainer.py", line 951, in _run
+    self._checkpoint_connector._restore_modules_and_callbacks(ckpt_path)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/trainer/connectors/checkpoint_connector.py", line 397, in _restore_modules_and_callbacks
+    self.resume_start(checkpoint_path)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/trainer/connectors/checkpoint_connector.py", line 79, in resume_start
+    loaded_checkpoint = self.trainer.strategy.load_checkpoint(checkpoint_path)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/strategies/strategy.py", line 368, in load_checkpoint
+    return self.checkpoint_io.load_checkpoint(checkpoint_path)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/fabric/plugins/io/torch_io.py", line 81, in load_checkpoint
+    raise FileNotFoundError(f"Checkpoint file not found: {path}")
+FileNotFoundError: Checkpoint file not found: /AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/outputs/FB/2025.08.23/024158/checkpoints/last.ckpt
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

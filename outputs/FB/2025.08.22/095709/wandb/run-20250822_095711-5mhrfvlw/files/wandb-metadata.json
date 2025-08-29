@@ -1,0 +1,57 @@
+{
+  "os": "Linux-5.4.250-2-velinux1u1-amd64-x86_64-with-glibc2.31",
+  "python": "CPython 3.9.17",
+  "startedAt": "2025-08-22T09:57:11.304973Z",
+  "args": [
+    "model=small",
+    "data=FB",
+    "parameterization=new_diff",
+    "backbone=FB",
+    "model.length=500",
+    "eval.compute_generative_perplexity=False",
+    "sampling.steps=100",
+    "training.different_time=True",
+    "training.onehot_sparse=True",
+    "checkpointing.resume_from_ckpt=False",
+    "T=1000",
+    "loader.global_batch_size=128",
+    "trainer.val_check_interval=500",
+    "gamma=0",
+    "trainer.devices=1"
+  ],
+  "program": "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/main.py",
+  "codePath": "main.py",
+  "git": {
+    "remote": "git@github.com:hhhhh789/SLM-pro.git",
+    "commit": "6c6512406664059ad458af5d9c1faa2f57e542f3"
+  },
+  "email": "pei-y21@mails.tsinghua.edu.cn",
+  "root": "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/outputs/FB/2025.08.22/095709",
+  "host": "t-20250822161306-jztdm-worker-0",
+  "executable": "/root/miniconda3/bin/python",
+  "cpu_count": 56,
+  "cpu_count_logical": 112,
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "3779302981632",
+      "used": "1755463286784"
+    }
+  },
+  "memory": {
+    "total": "2021763112960"
+  },
+  "cpu": {
+    "count": 56,
+    "countLogical": 112
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA A100-SXM4-80GB",
+      "memoryTotal": "85198045184",
+      "architecture": "Ampere"
+    }
+  ],
+  "cudaVersion": "11.8"
+}

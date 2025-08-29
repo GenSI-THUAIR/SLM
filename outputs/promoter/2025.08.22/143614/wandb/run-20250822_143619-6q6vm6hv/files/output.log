@@ -1,0 +1,34 @@
+[2025-08-22 14:36:21,456][__main__][INFO] - here None /AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/outputs/promoter/2025.08.22/143614/checkpoints/last.ckpt
+Initializing Genome
+Iterating through chromosomes
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 24/24 [09:26<00:00, 23.59s/it]
+Traceback (most recent call last):
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/main.py", line 311, in <module>
+    main()
+  File "/root/miniconda3/lib/python3.9/site-packages/hydra/main.py", line 94, in decorated_main
+    _run_hydra(
+  File "/root/miniconda3/lib/python3.9/site-packages/hydra/_internal/utils.py", line 394, in _run_hydra
+    _run_app(
+  File "/root/miniconda3/lib/python3.9/site-packages/hydra/_internal/utils.py", line 457, in _run_app
+    run_and_report(
+  File "/root/miniconda3/lib/python3.9/site-packages/hydra/_internal/utils.py", line 220, in run_and_report
+    return func()
+  File "/root/miniconda3/lib/python3.9/site-packages/hydra/_internal/utils.py", line 458, in <lambda>
+    lambda: hydra.run(
+  File "/root/miniconda3/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 119, in run
+    ret = run_job(
+  File "/root/miniconda3/lib/python3.9/site-packages/hydra/core/utils.py", line 186, in run_job
+    ret.return_value = task_function(task_cfg)
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/main.py", line 307, in main
+    _train(config, logger, tokenizer)
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/main.py", line 248, in _train
+    train_ds, valid_ds = dataloader.get_dataloaders(
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/dataloader.py", line 755, in get_dataloaders
+    train_set = EnhancerDataset('Mel', split='train')
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/promoter_utils/promoter_dataset.py", line 123, in __init__
+    self.chr_lens = self.genome.get_chr_lens()
+  File "/root/miniconda3/lib/python3.9/site-packages/selene_sdk/sequences/genome.py", line 314, in dfunc
+    self._unpicklable_init()
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/promoter_utils/selene_utils.py", line 142, in _unpicklable_init
+    mmap[:] = self.sequence_data
+KeyboardInterrupt

@@ -1,0 +1,4 @@
+[2025-08-22 09:53:10,533][__main__][INFO] - Starting Training.
+[2025-08-22 09:53:13,733][__main__][INFO] - here None /AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/outputs/text8/2025.08.22/095310/checkpoints/last.ckpt
+[2025-08-22 09:53:13,766][dataloader][INFO] - Loading data from: /data/text8/text8_train_bs256_wrapped.dat
+[2025-08-22 09:53:13,778][dataloader][INFO] - Loading data from: /data/text8/text8_test_bs256_wrapped.dat

@@ -1,0 +1,399 @@
+config:
+  T: 1000
+  backbone: dit_bfn
+  callbacks:
+    checkpoint_every_n_steps:
+      _target_: lightning.pytorch.callbacks.ModelCheckpoint
+      auto_insert_metric_name: false
+      dirpath: /AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/outputs/text8/2025.08.22/095310/checkpoints
+      every_n_train_steps: 1000
+      filename: step_{step}
+      save_last: true
+      save_top_k: -1
+      verbose: true
+    checkpoint_monitor:
+      _target_: lightning.pytorch.callbacks.ModelCheckpoint
+      auto_insert_metric_name: false
+      dirpath: /AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/outputs/text8/2025.08.22/095310/checkpoints
+      filename: best
+      mode: min
+      monitor: val/nll
+      save_last: false
+      save_top_k: 1
+      verbose: true
+    learning_rate_monitor:
+      _target_: lightning.pytorch.callbacks.LearningRateMonitor
+      logging_interval: step
+  checkpointing:
+    resume_ckpt_path: /AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/outputs/text8/2025.08.22/095310/checkpoints/last.ckpt
+    resume_from_ckpt: false
+    save_dir: /AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/outputs/text8/2025.08.22/095310
+  data:
+    cache_dir: /data/text8
+    extra:
+      bucket_size: None
+      max_batch_size: None
+      max_tokens: None
+    streaming: false
+    tokenizer_name_or_path: text8
+    train: text8
+    valid: text8
+    wrap: true
+  diffusion: absorbing_state
+  embedding_nml: false
+  entropy_condition: false
+  eval:
+    checkpoint_path: ''
+    compute_generative_perplexity: false
+    compute_perplexity_on_sanity: false
+    disable_ema: false
+    gen_ppl_eval_model_name_or_path: /AIRvePFS/ai4science/users/yupei/data/gpt2-large
+    generate_samples: true
+    new_diff_calculate: full
+    perplexity_batch_size: 8
+  fixed_embedding: false
+  gamma: 0.5
+  init_pre_embedding: false
+  loader:
+    batch_size: 128
+    eval_batch_size: 128
+    eval_global_batch_size: 128
+    global_batch_size: 128
+    num_workers: 0
+    pin_memory: true
+  logging_dir: csvlogdir
+  lr_scheduler:
+    _target_: transformers.get_constant_schedule_with_warmup
+    num_warmup_steps: 2500
+  mode: train
+  model:
+    cond_dim: 128
+    dropout: 0.1
+    hidden_size: 768
+    length: 256
+    n_blocks: 12
+    n_heads: 12
+    name: small
+    scale_by_sigma: true
+    tie_word_embeddings: false
+    type: ddit
+  noise:
+    sigma_max: 20
+    sigma_min: 0.0001
+    type: loglinear
+  optim:
+    beta1: 0.9
+    beta2: 0.999
+    eps: 1.0e-08
+    lr: 0.0005
+    weight_decay: 0
+  parameterization: new_diff
+  prior: uniform
+  sampling:
+    length: 256
+    noise_removal: true
+    num_sample_batches: 1
+    num_sample_log: 100
+    num_strides: 1
+    outdir: None
+    predictor: ddpm_cache
+    semi_ar: false
+    steps: 1000
+    stride_length: 1
+  seed: 1
+  strategy:
+    _target_: lightning.pytorch.strategies.DDPStrategy
+    find_unused_parameters: false
+  subs_masking: false
+  time_conditioning: true
+  trainer:
+    _target_: lightning.Trainer
+    accelerator: cuda
+    accumulate_grad_batches: 1
+    devices: 1
+    gradient_clip_val: 1.0
+    limit_train_batches: 1.0
+    limit_val_batches: 1.0
+    log_every_n_steps: 100
+    max_steps: 1000000
+    num_nodes: 1
+    num_sanity_val_steps: 2
+    precision: bf16
+    val_check_interval: 347
+  training:
+    antithetic_sampling: true
+    beta_bfn: 0.75
+    bscheduler: loglinear
+    change_of_variables: false
+    different_time: true
+    ema: 0.9999
+    entropy_to_count: false
+    importance_sampling: false
+    linear_trans: 1.0
+    onehot_sparse: false
+    reconstruct_only: false
+    reconstruct_type: ce
+    reconstruct_weight: 0.0
+    sampling_eps: 0.001
+    scheduler: square
+    top_nums: -1
+    uniform_encoded: false
+    without_T: false
+  wandb:
+    group: null
+    job_type: null
+    name: tiny_text8_512
+    notes: Init for dugging
+    project: Discrete-diffusion
+    resume: null
+    tags:
+    - loglinear
+    - text8
+    - text8
+tokenizer: !!python/object:dataloader.Text8Tokenizer
+  _added_tokens_decoder:
+    0: !!python/object:tokenizers.AddedToken
+      content: '[CLS]'
+      lstrip: false
+      normalized: false
+      rstrip: false
+      single_word: false
+      special: true
+    1: !!python/object:tokenizers.AddedToken
+      content: '[SEP]'
+      lstrip: false
+      normalized: false
+      rstrip: false
+      single_word: false
+      special: true
+    2: !!python/object:tokenizers.AddedToken
+      content: '[BOS]'
+      lstrip: false
+      normalized: false
+      rstrip: false
+      single_word: false
+      special: true
+    3: !!python/object:tokenizers.AddedToken
+      content: '[EOS]'
+      lstrip: false
+      normalized: false
+      rstrip: false
+      single_word: false
+      special: true
+    4: !!python/object:tokenizers.AddedToken
+      content: '[MASK]'
+      lstrip: false
+      normalized: false
+      rstrip: false
+      single_word: false
+      special: true
+    5: !!python/object:tokenizers.AddedToken
+      content: '[PAD]'
+      lstrip: false
+      normalized: false
+      rstrip: false
+      single_word: false
+      special: true
+    7: !!python/object:tokenizers.AddedToken
+      content: '[UNK]'
+      lstrip: false
+      normalized: false
+      rstrip: false
+      single_word: false
+      special: true
+  _added_tokens_encoder:
+    '[BOS]': 2
+    '[CLS]': 0
+    '[EOS]': 3
+    '[MASK]': 4
+    '[PAD]': 5
+    '[SEP]': 1
+    '[UNK]': 7
+  _additional_special_tokens: []
+  _bos_token: '[BOS]'
+  _cls_token: '[CLS]'
+  _decode_use_source_tokenizer: false
+  _eos_token: '[EOS]'
+  _in_target_context_manager: false
+  _mask_token: '[MASK]'
+  _pad_token: '[PAD]'
+  _pad_token_type_id: 0
+  _processor_class: null
+  _sep_token: '[SEP]'
+  _unk_token: '[UNK]'
+  _vocab_int_to_str:
+    0: '[CLS]'
+    1: '[SEP]'
+    2: '[BOS]'
+    3: '[EOS]'
+    4: '[MASK]'
+    5: '[PAD]'
+    6: '[RESERVED]'
+    7: '[UNK]'
+    8: a
+    9: b
+    10: c
+    11: d
+    12: e
+    13: f
+    14: g
+    15: h
+    16: i
+    17: j
+    18: k
+    19: l
+    20: m
+    21: n
+    22: o
+    23: p
+    24: q
+    25: r
+    26: s
+    27: t
+    28: u
+    29: v
+    30: w
+    31: x
+    32: y
+    33: z
+    34: ' '
+  _vocab_str_to_int:
+    ' ': 34
+    '[BOS]': 2
+    '[CLS]': 0
+    '[EOS]': 3
+    '[MASK]': 4
+    '[PAD]': 5
+    '[RESERVED]': 6
+    '[SEP]': 1
+    '[UNK]': 7
+    a: 8
+    b: 9
+    c: 10
+    d: 11
+    e: 12
+    f: 13
+    g: 14
+    h: 15
+    i: 16
+    j: 17
+    k: 18
+    l: 19
+    m: 20
+    n: 21
+    o: 22
+    p: 23
+    q: 24
+    r: 25
+    s: 26
+    t: 27
+    u: 28
+    v: 29
+    w: 30
+    x: 31
+    y: 32
+    z: 33
+  characters:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - n
+  - o
+  - p
+  - q
+  - r
+  - s
+  - t
+  - u
+  - v
+  - w
+  - x
+  - y
+  - z
+  - ' '
+  chat_template: null
+  clean_up_tokenization_spaces: true
+  deprecation_warnings: {}
+  init_inputs: !!python/tuple []
+  init_kwargs:
+    bos_token: '[BOS]'
+    cls_token: '[CLS]'
+    eos_token: '[EOS]'
+    mask_token: '[MASK]'
+    pad_token: '[PAD]'
+    sep_token: '[SEP]'
+    unk_token: '[UNK]'
+  model_input_names:
+  - input_ids
+  - token_type_ids
+  - attention_mask
+  model_max_length: 1000000000000000019884624838656
+  name_or_path: ''
+  padding_side: right
+  split_special_tokens: false
+  tokens_trie: !!python/object:transformers.tokenization_utils.Trie
+    _tokens: !!set
+      '[BOS]': null
+      '[CLS]': null
+      '[EOS]': null
+      '[MASK]': null
+      '[PAD]': null
+      '[SEP]': null
+      '[UNK]': null
+    data:
+      '[':
+        B:
+          O:
+            S:
+              ']':
+                ? ''
+                : 1
+        C:
+          L:
+            S:
+              ']':
+                ? ''
+                : 1
+        E:
+          O:
+            S:
+              ']':
+                ? ''
+                : 1
+        M:
+          A:
+            S:
+              K:
+                ']':
+                  ? ''
+                  : 1
+        P:
+          A:
+            D:
+              ']':
+                ? ''
+                : 1
+        S:
+          E:
+            P:
+              ']':
+                ? ''
+                : 1
+        U:
+          N:
+            K:
+              ']':
+                ? ''
+                : 1
+  truncation_side: right
+  verbose: false

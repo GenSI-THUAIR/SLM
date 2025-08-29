@@ -1,0 +1,23 @@
+2025-08-22 08:40:16,935 INFO    MainThread:10836 [wandb_setup.py:_flush():68] Current SDK version is 0.19.3
+2025-08-22 08:40:16,935 INFO    MainThread:10836 [wandb_setup.py:_flush():68] Configure stats pid to 10836
+2025-08-22 08:40:16,935 INFO    MainThread:10836 [wandb_setup.py:_flush():68] Loading settings from /root/.config/wandb/settings
+2025-08-22 08:40:16,935 INFO    MainThread:10836 [wandb_setup.py:_flush():68] Loading settings from /AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/outputs/uniref50/2025.08.22/084015/wandb/settings
+2025-08-22 08:40:16,935 INFO    MainThread:10836 [wandb_setup.py:_flush():68] Loading settings from environment variables
+2025-08-22 08:40:16,935 INFO    MainThread:10836 [wandb_init.py:_log_setup():598] Logging user logs to /AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/outputs/uniref50/2025.08.22/084015/wandb/run-20250822_084016-8y2cy0yi/logs/debug.log
+2025-08-22 08:40:16,935 INFO    MainThread:10836 [wandb_init.py:_log_setup():599] Logging internal logs to /AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/outputs/uniref50/2025.08.22/084015/wandb/run-20250822_084016-8y2cy0yi/logs/debug-internal.log
+2025-08-22 08:40:16,935 INFO    MainThread:10836 [wandb_init.py:init():714] calling init triggers
+2025-08-22 08:40:16,936 INFO    MainThread:10836 [wandb_init.py:init():719] wandb.init called with sweep_config: {}
+config: {}
+2025-08-22 08:40:16,936 INFO    MainThread:10836 [wandb_init.py:init():745] starting backend
+2025-08-22 08:40:17,168 INFO    MainThread:10836 [wandb_init.py:init():749] sending inform_init request
+2025-08-22 08:40:17,194 INFO    MainThread:10836 [backend.py:_multiprocessing_setup():104] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-08-22 08:40:17,194 INFO    MainThread:10836 [wandb_init.py:init():764] backend started and connected
+2025-08-22 08:40:17,198 INFO    MainThread:10836 [wandb_init.py:init():857] updated telemetry
+2025-08-22 08:40:17,238 INFO    MainThread:10836 [wandb_init.py:init():889] communicating run to backend with 90.0 second timeout
+2025-08-22 08:40:18,861 INFO    MainThread:10836 [wandb_init.py:init():941] starting run threads in backend
+2025-08-22 08:40:19,038 INFO    MainThread:10836 [wandb_run.py:_console_start():2420] atexit reg
+2025-08-22 08:40:19,038 INFO    MainThread:10836 [wandb_run.py:_redirect():2270] redirect: wrap_raw
+2025-08-22 08:40:19,039 INFO    MainThread:10836 [wandb_run.py:_redirect():2335] Wrapping output streams.
+2025-08-22 08:40:19,039 INFO    MainThread:10836 [wandb_run.py:_redirect():2360] Redirects installed.
+2025-08-22 08:40:19,042 INFO    MainThread:10836 [wandb_init.py:init():983] run started, returning control to user process
+2025-08-22 08:40:59,325 WARNING MsgRouterThr:10836 [router.py:message_loop():75] message_loop has been closed

@@ -1,0 +1,14 @@
+- model=small
+- data=FB
+- parameterization=new_diff
+- backbone=FB
+- model.length=500
+- eval.compute_generative_perplexity=False
+- sampling.steps=200
+- loader.global_batch_size=32
+- loader.batch_size=32
+- training.different_time=True
+- training.onehot_sparse=True
+- mode=eval
+- eval.checkpoint_path=/AIRvePFS/ai4science/users/yupei/test_slm_repo/ckpt/FB_best.ckpt
+- gamma=2.7

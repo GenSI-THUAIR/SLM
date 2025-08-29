@@ -1,0 +1,16 @@
+{"time":"2025-08-22T14:36:19.760128145Z","level":"INFO","msg":"stream: starting","core version":"0.19.3","symlink path":"/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/outputs/promoter/2025.08.22/143614/wandb/run-20250822_143619-6q6vm6hv/logs/debug-core.log"}
+{"time":"2025-08-22T14:36:19.868573768Z","level":"INFO","msg":"created new stream","id":"6q6vm6hv"}
+{"time":"2025-08-22T14:36:19.868633358Z","level":"INFO","msg":"stream: started","id":"6q6vm6hv"}
+{"time":"2025-08-22T14:36:19.868662415Z","level":"INFO","msg":"writer: Do: started","stream_id":"6q6vm6hv"}
+{"time":"2025-08-22T14:36:19.868683507Z","level":"INFO","msg":"handler: started","stream_id":"6q6vm6hv"}
+{"time":"2025-08-22T14:36:19.868745025Z","level":"INFO","msg":"sender: started","stream_id":"6q6vm6hv"}
+{"time":"2025-08-22T14:36:21.250267275Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-08-22T14:40:33.371181613Z","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.bandw.top/files/algomole/Discrete-diffusion/6q6vm6hv/file_stream\": read tcp 10.255.203.126:55380->104.21.20.172:443: read: connection reset by peer"}
+{"time":"2025-08-22T15:02:57.216455363Z","level":"INFO","msg":"stream: closing","id":"6q6vm6hv"}
+{"time":"2025-08-22T15:02:57.216525454Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-08-22T15:02:57.217229041Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-08-22T15:02:58.990379244Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-08-22T15:03:01.215141379Z","level":"INFO","msg":"handler: closed","stream_id":"6q6vm6hv"}
+{"time":"2025-08-22T15:03:01.215175286Z","level":"INFO","msg":"writer: Close: closed","stream_id":"6q6vm6hv"}
+{"time":"2025-08-22T15:03:01.215197315Z","level":"INFO","msg":"sender: closed","stream_id":"6q6vm6hv"}
+{"time":"2025-08-22T15:03:01.218004061Z","level":"INFO","msg":"stream: closed","id":"6q6vm6hv"}

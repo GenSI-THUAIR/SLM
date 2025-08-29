@@ -1,0 +1,34 @@
+2025-08-23 02:23:41,700 INFO    MainThread:258491 [wandb_setup.py:_flush():68] Current SDK version is 0.19.3
+2025-08-23 02:23:41,700 INFO    MainThread:258491 [wandb_setup.py:_flush():68] Configure stats pid to 258491
+2025-08-23 02:23:41,700 INFO    MainThread:258491 [wandb_setup.py:_flush():68] Loading settings from /root/.config/wandb/settings
+2025-08-23 02:23:41,700 INFO    MainThread:258491 [wandb_setup.py:_flush():68] Loading settings from /AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/outputs/promoter/2025.08.23/022336/wandb/settings
+2025-08-23 02:23:41,700 INFO    MainThread:258491 [wandb_setup.py:_flush():68] Loading settings from environment variables
+2025-08-23 02:23:41,700 INFO    MainThread:258491 [wandb_init.py:_log_setup():598] Logging user logs to /AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/outputs/promoter/2025.08.23/022336/wandb/run-20250823_022341-7qzj185x/logs/debug.log
+2025-08-23 02:23:41,700 INFO    MainThread:258491 [wandb_init.py:_log_setup():599] Logging internal logs to /AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/outputs/promoter/2025.08.23/022336/wandb/run-20250823_022341-7qzj185x/logs/debug-internal.log
+2025-08-23 02:23:41,700 INFO    MainThread:258491 [wandb_init.py:init():714] calling init triggers
+2025-08-23 02:23:41,700 INFO    MainThread:258491 [wandb_init.py:init():719] wandb.init called with sweep_config: {}
+config: {}
+2025-08-23 02:23:41,700 INFO    MainThread:258491 [wandb_init.py:init():745] starting backend
+2025-08-23 02:23:41,933 INFO    MainThread:258491 [wandb_init.py:init():749] sending inform_init request
+2025-08-23 02:23:41,937 INFO    MainThread:258491 [backend.py:_multiprocessing_setup():104] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-08-23 02:23:41,937 INFO    MainThread:258491 [wandb_init.py:init():764] backend started and connected
+2025-08-23 02:23:41,941 INFO    MainThread:258491 [wandb_init.py:init():857] updated telemetry
+2025-08-23 02:23:41,972 INFO    MainThread:258491 [wandb_init.py:init():889] communicating run to backend with 90.0 second timeout
+2025-08-23 02:24:04,942 WARNING MainThread:258491 [wandb_init.py:init():1372] interrupted
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.9/site-packages/wandb/sdk/wandb_init.py", line 1368, in init
+    return wi.init(run_settings)
+  File "/root/miniconda3/lib/python3.9/site-packages/wandb/sdk/wandb_init.py", line 894, in init
+    result = run_init_handle.wait(
+  File "/root/miniconda3/lib/python3.9/site-packages/wandb/sdk/lib/mailbox.py", line 279, in wait
+    found, abandoned = self._slot._get_and_clear(timeout=wait_timeout)
+  File "/root/miniconda3/lib/python3.9/site-packages/wandb/sdk/lib/mailbox.py", line 126, in _get_and_clear
+    if self._wait(timeout=timeout):
+  File "/root/miniconda3/lib/python3.9/site-packages/wandb/sdk/lib/mailbox.py", line 122, in _wait
+    return self._event.wait(timeout=timeout)
+  File "/root/miniconda3/lib/python3.9/threading.py", line 581, in wait
+    signaled = self._cond.wait(timeout)
+  File "/root/miniconda3/lib/python3.9/threading.py", line 316, in wait
+    gotit = waiter.acquire(True, timeout)
+KeyboardInterrupt
+2025-08-23 02:24:04,945 WARNING MsgRouterThr:258491 [router.py:message_loop():75] message_loop has been closed

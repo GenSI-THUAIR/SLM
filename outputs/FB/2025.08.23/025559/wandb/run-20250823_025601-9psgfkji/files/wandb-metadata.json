@@ -1,0 +1,58 @@
+{
+  "os": "Linux-5.4.250-2-velinux1u1-amd64-x86_64-with-glibc2.31",
+  "python": "CPython 3.9.17",
+  "startedAt": "2025-08-23T02:56:01.681275Z",
+  "args": [
+    "model=small",
+    "data=FB",
+    "parameterization=new_diff",
+    "backbone=FB",
+    "model.length=500",
+    "eval.compute_generative_perplexity=False",
+    "sampling.steps=200",
+    "sampling.outdir=/AIRvePFS/ai4science/users/yupei/test_slm_repo/output/output_fb",
+    "loader.global_batch_size=32",
+    "training.different_time=True",
+    "training.onehot_sparse=True",
+    "mode=ppl_eval",
+    "T=1000",
+    "eval.checkpoint_path=/AIRvePFS/ai4science/users/yupei/test_slm_repo/ckpt/FB_best.ckpt",
+    "gamma=2.7",
+    "trainer.devices=1"
+  ],
+  "program": "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/main.py",
+  "codePath": "main.py",
+  "git": {
+    "remote": "git@github.com:GenSI-THUAIR/SLM.git",
+    "commit": "9fa3d206c0c7fdf644ed962edbc576a8f25eff45"
+  },
+  "email": "pei-y21@mails.tsinghua.edu.cn",
+  "root": "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/outputs/FB/2025.08.23/025559",
+  "host": "t-20250822161306-jztdm-worker-0",
+  "executable": "/root/miniconda3/bin/python",
+  "cpu_count": 56,
+  "cpu_count_logical": 112,
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "3779302981632",
+      "used": "1754883293184"
+    }
+  },
+  "memory": {
+    "total": "2021763112960"
+  },
+  "cpu": {
+    "count": 56,
+    "countLogical": 112
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA A100-SXM4-80GB",
+      "memoryTotal": "85198045184",
+      "architecture": "Ampere"
+    }
+  ],
+  "cudaVersion": "11.8"
+}

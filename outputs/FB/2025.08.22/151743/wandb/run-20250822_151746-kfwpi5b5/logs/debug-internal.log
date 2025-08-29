@@ -1,0 +1,10 @@
+{"time":"2025-08-22T15:17:46.271790428Z","level":"INFO","msg":"stream: starting","core version":"0.19.3","symlink path":"/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/outputs/FB/2025.08.22/151743/wandb/run-20250822_151746-kfwpi5b5/logs/debug-core.log"}
+{"time":"2025-08-22T15:17:46.376592152Z","level":"INFO","msg":"created new stream","id":"kfwpi5b5"}
+{"time":"2025-08-22T15:17:46.376643334Z","level":"INFO","msg":"stream: started","id":"kfwpi5b5"}
+{"time":"2025-08-22T15:17:46.376674144Z","level":"INFO","msg":"writer: Do: started","stream_id":"kfwpi5b5"}
+{"time":"2025-08-22T15:17:46.376696393Z","level":"INFO","msg":"sender: started","stream_id":"kfwpi5b5"}
+{"time":"2025-08-22T15:17:46.376750633Z","level":"INFO","msg":"handler: started","stream_id":"kfwpi5b5"}
+{"time":"2025-08-22T15:17:49.123004186Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-08-22T15:17:49.603125678Z","level":"INFO","msg":"stream: closing","id":"kfwpi5b5"}
+{"time":"2025-08-22T15:17:49.603192969Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-08-22T15:17:49.603741503Z","level":"INFO","msg":"Stopped system monitor"}

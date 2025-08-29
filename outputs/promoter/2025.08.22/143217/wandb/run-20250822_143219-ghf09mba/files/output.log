@@ -1,0 +1,30 @@
+[2025-08-22 14:32:24,612][__main__][INFO] - here None /AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/outputs/promoter/2025.08.22/143217/checkpoints/last.ckpt
+Initializing Genome
+Error executing job with overrides: ['model=small', 'data=promoter', 'parameterization=new_diff', 'backbone=promoter', 'model.length=1024', 'eval.compute_generative_perplexity=False', 'sampling.steps=100', 'training.different_time=True', 'training.onehot_sparse=True', 'checkpointing.resume_from_ckpt=False', 'T=1000', 'trainer.val_check_interval=100', 'loader.global_batch_size=128', 'trainer.devices=1']
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.9/site-packages/pyfaidx/__init__.py", line 391, in __init__
+    self.file = open(filename, 'r+b' if mutable else 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '/AIRvePFS/ai4science/users/yupei/data/promoter_design/Homo_sapiens.GRCh38.dna.primary_assembly.fa'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/main.py", line 307, in main
+    _train(config, logger, tokenizer)
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/main.py", line 248, in _train
+    train_ds, valid_ds = dataloader.get_dataloaders(
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/dataloader.py", line 755, in get_dataloaders
+    train_set = PromoterDataset(config.data.cache_dir, n_tsses=100000, rand_offset=10, split='train')
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/promoter_utils/promoter_dataset.py", line 123, in __init__
+    self.chr_lens = self.genome.get_chr_lens()
+  File "/root/miniconda3/lib/python3.9/site-packages/selene_sdk/sequences/genome.py", line 314, in dfunc
+    self._unpicklable_init()
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM/promoter_utils/selene_utils.py", line 97, in _unpicklable_init
+    self.genome = pyfaidx.Fasta(self.input_path)
+  File "/root/miniconda3/lib/python3.9/site-packages/pyfaidx/__init__.py", line 1090, in __init__
+    self.faidx = Faidx(
+  File "/root/miniconda3/lib/python3.9/site-packages/pyfaidx/__init__.py", line 393, in __init__
+    raise FastaNotFoundError("Cannot read FASTA from file %s" % filename)
+pyfaidx.FastaNotFoundError: Cannot read FASTA from file /AIRvePFS/ai4science/users/yupei/data/promoter_design/Homo_sapiens.GRCh38.dna.primary_assembly.fa
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

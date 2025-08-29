@@ -1,0 +1,7 @@
+{"time":"2025-08-22T08:16:18.866253688Z","level":"INFO","msg":"stream: starting","core version":"0.19.3","symlink path":"/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/outputs/text8/2025.08.22/081613/wandb/run-20250822_081618-fk9qt3wh/logs/debug-core.log"}
+{"time":"2025-08-22T08:16:18.976483298Z","level":"INFO","msg":"created new stream","id":"fk9qt3wh"}
+{"time":"2025-08-22T08:16:18.976543081Z","level":"INFO","msg":"stream: started","id":"fk9qt3wh"}
+{"time":"2025-08-22T08:16:18.976595187Z","level":"INFO","msg":"writer: Do: started","stream_id":"fk9qt3wh"}
+{"time":"2025-08-22T08:16:18.97664566Z","level":"INFO","msg":"handler: started","stream_id":"fk9qt3wh"}
+{"time":"2025-08-22T08:16:18.976602042Z","level":"INFO","msg":"sender: started","stream_id":"fk9qt3wh"}
+{"time":"2025-08-22T08:16:34.79841219Z","level":"INFO","msg":"stream: closing","id":"fk9qt3wh"}

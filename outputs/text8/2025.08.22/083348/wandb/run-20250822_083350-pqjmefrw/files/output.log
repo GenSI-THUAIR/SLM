@@ -1,0 +1,161 @@
+[2025-08-22 08:33:52,724][__main__][INFO] - here None /AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/outputs/text8/2025.08.22/083348/checkpoints/last.ckpt
+data name: text8
+[2025-08-22 08:33:52,757][dataloader][INFO] - Loading data from: /data/text8/text8_train_bs256_wrapped.dat
+data name: text8
+[2025-08-22 08:33:52,767][dataloader][INFO] - Loading data from: /data/text8/text8_test_bs256_wrapped.dat
+vocab_size is 35
+/root/miniconda3/lib/python3.9/site-packages/lightning/fabric/connector.py:572: `precision=bf16` is supported for historical reasons but its usage is discouraged. Please set your precision to bf16-mixed instead!
+Using bfloat16 Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+`Trainer(limit_train_batches=1.0)` was configured so 100% of the batches per epoch will be used..
+`Trainer(limit_val_batches=1.0)` was configured so 100% of the batches will be used..
+Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/1
+----------------------------------------------------------------------------------------------------
+distributed_backend=nccl
+All distributed processes registered. Starting with 1 processes
+----------------------------------------------------------------------------------------------------
+
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+   | Name             | Type                       | Params | Mode
+-------------------------------------------------------------------------
+0  | bayesian_flow    | DiscreteBayesianFlow       | 0      | train
+1  | bfn_loss         | DiscreteBayesianFlowLoss   | 0      | train
+2  | fm_loss_fn       | MixturePathGeneralizedKL   | 0      | train
+3  | backbone         | BFN_DIT                    | 92.4 M | train
+4  | wrapped_fm_model | WrappedModel               | 92.4 M | train
+5  | fm_solver        | MixtureDiscreteEulerSolver | 92.4 M | train
+6  | softplus         | Softplus                   | 0      | train
+7  | train_metrics    | MetricCollection           | 0      | train
+8  | valid_metrics    | MetricCollection           | 0      | train
+9  | valid_recmetrics | MetricCollection           | 0      | train
+10 | test_metrics     | MetricCollection           | 0      | train
+11 | gen_ppl_metric   | Perplexity                 | 0      | train
+12 | gen_kl_metric    | KLDivergence               | 0      | train
+13 | noise            | LogLinearNoise             | 0      | train
+-------------------------------------------------------------------------
+92.4 M    Trainable params
+0         Non-trainable params
+92.4 M    Total params
+369.738   Total estimated model params size (MB)
+186       Modules in train mode
+0         Modules in eval mode
+Sanity Checking DataLoader 0: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:02<00:00,  0.72it/s]valid_rec_dict is {'val_rec/bpd': tensor(5.1293, device='cuda:0', dtype=torch.float64), 'val_rec/kl': tensor(0., device='cuda:0', dtype=torch.float64), 'val_rec/nll': tensor(3.5553, device='cuda:0', dtype=torch.float64), 'val_rec/ppl': tensor(35.0000, device='cuda:0', dtype=torch.float64)}
+/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:425: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=111` in the `DataLoader` to improve performance.
+/root/miniconda3/lib/python3.9/site-packages/torchmetrics/utilities/prints.py:43: UserWarning: Encountered `nan` values in tensor. Will be removed.
+  warnings.warn(*args, **kwargs)  # noqa: B028
+Epoch 0:   0%|                                                                                                                                                                | 0/695 [00:00<?, ?it/s]
+/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:425: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=111` in the `DataLoader` to improve performance.
+Error executing job with overrides: ['model=small', 'data=text8', 'parameterization=new_diff', 'backbone=dit_bfn', 'model.length=256', 'eval.compute_generative_perplexity=False', 'wandb.name=tiny_text8_512', 'sampling.steps=1000', 'trainer.val_check_interval=347', 'training.beta_bfn=0.75', 'checkpointing.resume_from_ckpt=False', 'T=1000', 'loader.global_batch_size=512', 'eval.new_diff_calculate=full', 'trainer.devices=1']
+Traceback (most recent call last):
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/main.py", line 268, in main
+    _train(config, logger, tokenizer)
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/main.py", line 250, in _train
+    trainer.fit(model, train_ds, valid_ds, ckpt_path=ckpt_path)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/trainer/trainer.py", line 539, in fit
+    call._call_and_handle_interrupt(
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/trainer/call.py", line 46, in _call_and_handle_interrupt
+    return trainer.strategy.launcher.launch(trainer_fn, *args, trainer=trainer, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/strategies/launchers/subprocess_script.py", line 105, in launch
+    return function(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/trainer/trainer.py", line 575, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/trainer/trainer.py", line 982, in _run
+    results = self._run_stage()
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/trainer/trainer.py", line 1026, in _run_stage
+    self.fit_loop.run()
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/loops/fit_loop.py", line 216, in run
+    self.advance()
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/loops/fit_loop.py", line 455, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/loops/training_epoch_loop.py", line 150, in run
+    self.advance(data_fetcher)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/loops/training_epoch_loop.py", line 320, in advance
+    batch_output = self.automatic_optimization.run(trainer.optimizers[0], batch_idx, kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 192, in run
+    self._optimizer_step(batch_idx, closure)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 270, in _optimizer_step
+    call._call_lightning_module_hook(
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/trainer/call.py", line 171, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/slm.py", line 357, in optimizer_step
+    super().optimizer_step(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/core/module.py", line 1302, in optimizer_step
+    optimizer.step(closure=optimizer_closure)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/core/optimizer.py", line 154, in step
+    step_output = self._strategy.optimizer_step(self._optimizer, closure, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/strategies/ddp.py", line 270, in optimizer_step
+    optimizer_output = super().optimizer_step(optimizer, closure, model, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/strategies/strategy.py", line 239, in optimizer_step
+    return self.precision_plugin.optimizer_step(optimizer, model=model, closure=closure, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/plugins/precision/amp.py", line 76, in optimizer_step
+    return super().optimizer_step(optimizer, model=model, closure=closure, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/plugins/precision/precision.py", line 123, in optimizer_step
+    return optimizer.step(closure=closure, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/torch/optim/lr_scheduler.py", line 68, in wrapper
+    return wrapped(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/torch/optim/optimizer.py", line 373, in wrapper
+    out = func(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/torch/optim/optimizer.py", line 76, in _use_grad
+    ret = func(self, *args, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/torch/optim/adamw.py", line 161, in step
+    loss = closure()
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/plugins/precision/precision.py", line 109, in _wrap_closure
+    closure_result = closure()
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 146, in __call__
+    self._result = self.closure(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 131, in closure
+    step_output = self._step_fn()
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 319, in _training_step
+    training_step_output = call._call_strategy_hook(trainer, "training_step", *kwargs.values())
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/trainer/call.py", line 323, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/strategies/strategy.py", line 390, in training_step
+    return self._forward_redirection(self.model, self.lightning_module, "training_step", *args, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/strategies/strategy.py", line 641, in __call__
+    wrapper_output = wrapper_module(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1519, in forward
+    else self._run_ddp_forward(*inputs, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/torch/nn/parallel/distributed.py", line 1355, in _run_ddp_forward
+    return self.module(*inputs, **kwargs)  # type: ignore[index]
+  File "/root/miniconda3/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/lightning/pytorch/strategies/strategy.py", line 634, in wrapped_forward
+    out = method(*_args, **_kwargs)
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/slm.py", line 519, in training_step
+    loss, rec = self._compute_loss(batch, prefix='train')
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/slm.py", line 486, in _compute_loss
+    losses = self._loss(batch['input_ids'], attention_mask)
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/slm.py", line 1395, in _loss
+    loss = self._forward_new_diffusion(input_tokens,stage='training')
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/slm.py", line 1182, in _forward_new_diffusion
+    model_output = self.forward(x_t, t, stage=stage)
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/slm.py", line 441, in forward
+    logits = self.backbone(x, sigma)
+  File "/root/miniconda3/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/models/dit_bfn.py", line 424, in forward
+    x = self.blocks[i](x, rotary_cos_sin, c, seqlens=None)
+  File "/root/miniconda3/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/models/dit_bfn.py", line 300, in forward
+    self.mlp(modulate(
+  File "/AIRvePFS/ai4science/users/yupei/test_slm_repo/SLM-pro/models/dit_bfn.py", line 48, in modulate
+    return x * (1 + scale) + shift
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 384.00 MiB. GPU 0 has a total capacty of 79.35 GiB of which 298.19 MiB is free. Process 1873978 has 79.05 GiB memory in use. Of the allocated memory 76.97 GiB is allocated by PyTorch, and 108.37 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
